@@ -6,13 +6,13 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:36:12 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 12:13:50 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:21:41 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void check_type(t_print *p)
+int check_type(t_print *p)
 {
 	if (p->form[p->tlen] == 'd' || p->form[p->tlen] == 'i')
 	   return(ft_print_number(p));
@@ -31,7 +31,7 @@ void check_type(t_print *p)
 	return (0);
 }
 
-void check_zero(t_print *p)
+int check_zero(t_print *p)
 {
 	if (p->form[p->tlen] == '0' && (!(ft_isdigit(p->form[p->tlen -1]))) && (p->point == 0))
 	{
@@ -86,7 +86,7 @@ void check_flags(t_print *p)
 		p->tlen++;
 	}
 	p->tlen++;
-	reset_struct(t_print *p);
+	reset_struct(p);
 }
 
 void check_arg(t_print *p)

@@ -6,7 +6,7 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 09:14:55 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 00:17:40 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:17:25 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,24 @@ int ft_nbx_len(long long int nbr)
 	return (i);
 }
 
-void ft_itoa_x(long long int nbr, int case, t_print *p)
+void ft_itoa_x(long long int nbr, int lcase, t_print *p)
 {
 	int i;
 	char *tmp;
 
 	i = ft_nbx_len(nbr);
-	tmp = ft_calloc(i + 1; sizeof(char));
+	tmp = ft_calloc(i + 1, sizeof(char));
 	while (i > 0)
 	{
-		if (nbr % base > 9 && case == 1)
-			tmp[i - 1] = (nbr % base) + 'A' - 10;
-		else if (nbr % base > 9 && case == 0)
-			tmp[i - 1] = (nbr % base) + 'a' - 10;
-		else if (nbr % base < 10)
-			tmp[i - 1] = (nbr % base) + '0';
+		if (nbr % 16 > 9 && lcase == 1)
+			tmp[i - 1] = (nbr % 16) + 'A' - 10;
+		else if (nbr % 16 > 9 && lcase == 0)
+			tmp[i - 1] = (nbr % 16) + 'a' - 10;
+		else if (nbr % 16 < 10)
+			tmp[i - 1] = (nbr % 16) + '0';
 		i--;
-		nbr = nbr / base;
+		nbr = nbr / 16;
 	}
-	p->len = write(1, tmp, ft_strlen(tmp));
+	p->len = p->len + write(1, tmp, ft_strlen(tmp));
 	free(tmp);
 }

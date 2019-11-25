@@ -6,9 +6,11 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 18:09:49 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/24 18:09:49 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:12:24 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int ft_print_char(t_print *p)
 {
@@ -19,12 +21,12 @@ int ft_print_char(t_print *p)
 	{
 		p->len = write(1, &c, 1);
 		if (p->width > 1)
-			ft_print_spaces(p->width - 1, t_print *p);
+			ft_print_spaces(p->width - 1, p);
 	}
 	else
 	{
 		if (p->width > 1)
-			ft_print_spaces(p->width - 1, t_print *p);
+			ft_print_spaces(p->width - 1, p);
 		p->len = write(1, &c, 1);
 	}
 	return (1);
@@ -36,12 +38,12 @@ int ft_print_percent(t_print *p)
 	{
 		p->len = write(1, "%", 1);
 		if (p->width > 1)
-			ft_print_spaces(p->width - 1, t_print *p);
+			ft_print_spaces(p->width - 1, p);
 	}
 	else
 	{
 		if (p->width > 1)
-			ft_print_spaces(p->width - 1, t_print *p);
+			ft_print_spaces(p->width - 1, p);
 		p->len = write(1, "%", 1);
 	}
 	return (1);

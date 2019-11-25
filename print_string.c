@@ -6,9 +6,11 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:49:26 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/24 16:49:26 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:04:30 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ft_str_l(t_print *p, char *c)
 {
@@ -20,13 +22,13 @@ void	ft_str_l(t_print *p, char *c)
 	{
 		p->len = p->len + write(1, c, p->prec);
 		if (p->width > p->prec)
-			ft_print_spaces(p->width - p->prec, t_print *p);
+			ft_print_spaces(p->width - p->prec, p);
 	}
 	else
 	{
 		p->len = p->len + write(1, c, len);
 		if (p->width > len)
-			ft_print_spaces(p->width - len, t_print *p);
+			ft_print_spaces(p->width - len, p);
 	}
 }
 
@@ -39,13 +41,13 @@ void	ft_str_r(t_print *p, char *c)
 	if (p->prec < len)
 	{
 		if (p->width > p->prec)
-			ft_print_spaces(p->width - p->prec, t_print *p);
+			ft_print_spaces(p->width - p->prec, p);
 		p->len = p->len + write(1, c, p->prec);
 	}
 	else
 	{
 		if (p->width > len)
-			ft_print_spaces(p->width - len, t_print *p);
+			ft_print_spaces(p->width - len, p);
 		p->len = p->len + write(1, c, len);
 	}
 }

@@ -6,26 +6,28 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 20:19:59 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/24 20:19:59 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:03:21 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void ft_unbr_l(t_print *p, unsigned int nbr)
 {
 	if (p->prec > ft_nb_len((int)nbr))
 	{
-		ft_print_zeros(p->prec - ft_nb_len((int)nbr), t_print *p);
+		ft_print_zeros(p->prec - ft_nb_len((int)nbr), p);
 		ft_putnbr_fd((int)nbr, 1);
 		p->len = p->len + ft_nb_len((int)nbr);
 		if (p->width > p->prec)
-		ft_print_spaces(p->width - p->prec, t_print *p);
+		ft_print_spaces(p->width - p->prec, p);
 	}
 	else
 	{
 		ft_putnbr_fd((int)nbr, 1);
 		p->len = p->len + ft_nb_len((int)nbr);
 		if (p->width > ft_nb_len((int)nbr))
-		ft_print_spaces(p->width - ft_nb_len((int)nbr), t_print *p);
+		ft_print_spaces(p->width - ft_nb_len((int)nbr), p);
 	}
 }
 
@@ -33,18 +35,18 @@ void ft_unbr_r(t_print *p, unsigned int nbr)
 {
 	if (p->prec > ft_nb_len((int)nbr))
 	{
-		if (p->width > p->prec + sign)
-			ft_print_spaces(p->width - p->prec, t_print *p);
-		ft_print_zeros(p->prec - ft_nb_len((int)nbr), t_print *p);
+		if (p->width > p->prec)
+			ft_print_spaces(p->width - p->prec, p);
+		ft_print_zeros(p->prec - ft_nb_len((int)nbr), p);
 		ft_putnbr_fd((int)nbr, 1);
 		p->len = p->len + ft_nb_len((int)nbr);
 	}
 	else
 	{
 		if ((p->width > ft_nb_len((int)nbr)) && p->zero)
-			ft_print_zeros(p->prec - ft_nb_len((int)nbr), t_print *p);
+			ft_print_zeros(p->prec - ft_nb_len((int)nbr), p);
 		else if (p->width > ft_nb_len((int)nbr))
-			ft_print_spaces(p->width - ft_nb_len((int)nbr), t_print *p);
+			ft_print_spaces(p->width - ft_nb_len((int)nbr), p);
 		ft_putnbr_fd((int)nbr, 1);
 		p->len = p->len + ft_nb_len((int)nbr);
 	}
