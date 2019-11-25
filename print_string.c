@@ -6,7 +6,7 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 16:49:26 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 15:04:30 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:50:35 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	ft_str_l(t_print *p, char *c)
 	int len;
 
 	len = ft_strlen(c);
-
-	if (p->prec < len)
+	if (p->point && p->prec < len)
 	{
 		p->len = p->len + write(1, c, p->prec);
 		if (p->width > p->prec)
@@ -35,10 +34,8 @@ void	ft_str_l(t_print *p, char *c)
 void	ft_str_r(t_print *p, char *c)
 {
 	int len;
-
 	len = ft_strlen(c);
-
-	if (p->prec < len)
+	if (p->point && p->prec < len)
 	{
 		if (p->width > p->prec)
 			ft_print_spaces(p->width - p->prec, p);

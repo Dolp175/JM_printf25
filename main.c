@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: jomartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/18 12:33:16 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 17:03:17 by jomartin         ###   ########.fr       */
+/*   Created: 2019/11/25 15:39:51 by jomartin          #+#    #+#             */
+/*   Updated: 2019/11/25 19:38:14 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_printf(const char *format, ...)
+int main()
 {
-	t_print *p;
+	int i;
+	int j;
+	i = ft_printf("%3.3s%7.3s", "hello", "world");
 
-	p = malloc(sizeof(t_print)); 
+	printf("\n");
+	
+	j = printf("%3.3s%7.3s", "hello", "world");
 
-	ini_struct(p);
-	va_start(p->args, format);
-	p->form = ft_strdup(format);
-	if (is_valid(p) == 0)
-		return (p->len);
-	check_arg(p);
-
-	return (p->len);
+	printf("\n %d, %d", i, j);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 18:09:49 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 15:12:24 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:55:21 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int ft_print_percent(t_print *p)
 {
 	if (p->left)
 	{
-		p->len = write(1, "%", 1);
+		p->len = p->len + write(1, "%", 1);
 		if (p->width > 1)
 			ft_print_spaces(p->width - 1, p);
 	}
@@ -44,7 +44,7 @@ int ft_print_percent(t_print *p)
 	{
 		if (p->width > 1)
 			ft_print_spaces(p->width - 1, p);
-		p->len = write(1, "%", 1);
+		p->len = p->len + write(1, "%", 1);
 	}
 	return (1);
 
