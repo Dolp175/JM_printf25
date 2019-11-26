@@ -6,7 +6,7 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:36:12 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 19:50:21 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/26 10:50:07 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void check_aster(t_print *p)
 void check_flags(t_print *p)
 {
 	p->tlen++;
-	while (check_type(p) != 1)
+	while (check_type(p) != 1 && p->form[p->tlen])
 	{
 		check_zero(p);
 		if (p->form[p->tlen] == '-')

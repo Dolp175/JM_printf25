@@ -55,7 +55,7 @@ int ft_print_pointer(t_print *p)
 	int j;
 
 	i = (long long int)va_arg(p->args, void *);
-	j = ft_nbx_len(i) + 2;
+		j = ft_nbx_len(i) + 2;
 	if (p->left)
 		ft_point_l(p, i, j);
 	else

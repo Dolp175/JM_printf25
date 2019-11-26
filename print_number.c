@@ -6,7 +6,7 @@
 /*   By: jomartin < jomartin@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:47:07 by jomartin          #+#    #+#             */
-/*   Updated: 2019/11/25 15:09:43 by jomartin         ###   ########.fr       */
+/*   Updated: 2019/11/25 23:27:30 by jomartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void ft_nbr_r(t_print *p, int nbr, int sign)
 	}
 	else
 	{
-		if ((p->width > ft_nb_len(nbr) + sign) && p->zero)
-			ft_print_zeros(p->prec - ft_nb_len(nbr), p);
+		if ((p->width > ft_nb_len(nbr) + sign) && p->zero && !p->point)
+			ft_print_zeros(p->width - ft_nb_len(nbr) - sign, p);
 		else if (p->width > ft_nb_len(nbr) + sign)
 			ft_print_spaces(p->width - ft_nb_len(nbr) - sign, p);
 		if (sign)

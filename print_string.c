@@ -25,8 +25,10 @@ void	ft_str_l(t_print *p, char *c)
 	}
 	else
 	{
-		p->len = p->len + write(1, c, len);
+			p->len = p->len + write(1, c, len);
 		if (p->width > len)
+			ft_print_spaces(p->width - len, p);
+		if (!c)
 			ft_print_spaces(p->width - len, p);
 	}
 }

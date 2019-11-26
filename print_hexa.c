@@ -25,7 +25,7 @@ void ft_hexa_l(t_print *p, int lcase, long long int i, int j)
 	{
 		ft_itoa_x(i, lcase, p);
 		if (p->width > j)
-			ft_print_spaces(p->width - p->prec, p);
+			ft_print_spaces(p->width - j, p);
 	}
 }
 

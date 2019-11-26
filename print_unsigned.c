@@ -43,8 +43,8 @@ void ft_unbr_r(t_print *p, unsigned int nbr)
 	}
 	else
 	{
-		if ((p->width > ft_nb_len((int)nbr)) && p->zero)
-			ft_print_zeros(p->prec - ft_nb_len((int)nbr), p);
+		if ((p->width > ft_nb_len((int)nbr)) && p->zero && !p->point)
+			ft_print_zeros(p->width - ft_nb_len((int)nbr), p);
 		else if (p->width > ft_nb_len((int)nbr))
 			ft_print_spaces(p->width - ft_nb_len((int)nbr), p);
 		ft_putnbr_fd((int)nbr, 1);
